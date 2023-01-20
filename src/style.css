@@ -1,9 +1,11 @@
 @keyframes reveal {
   0% {
+    left: 100%;
     right: 100%;
   }
   100% {
     right: 0;
+    left: 0;
   }
 }
 
@@ -34,6 +36,10 @@
   --btn-padding: 0 23px;
   --btn-font-size: 14px;
   --btn-font-lh: 24px;
+  --cubic-bezier: cubic-bezier(.98,0,0,.96);
+  /* --cubic-bezier: cubic-bezier(0.1, 0, 0, 1); */
+  --cubic-bezier-alt: cubic-bezier(0.1, 0, 0, 1.2);
+
 }
 
 body,
@@ -45,7 +51,7 @@ html {
 
 .tag {
   height: 34px;
-  padding: 0 8px;
+  padding: 0 10px;
   color: var(--color-primary);
   font-size: var(--subtitle-size);
   line-height: var(--subtitle-lh);
@@ -66,11 +72,13 @@ html {
   height: 100%;
   background-color: var(--bg-tertiary);
   position: absolute;
-  left: 0;
+  left: 50%;
+  right: 50%;
   content: '';
   display: block;
-  animation: reveal 1s ease-in-out forwards;
-  animation-delay: 1s;
+  animation: reveal 1s var(--cubic-bezier-alt) forwards;
+  animation-delay: 0.8s;
+  border-radius: 4px;
 }
 
 .reveal-box {
@@ -93,11 +101,16 @@ html {
   margin-top: 15vh;
   height: calc(70vh);
   padding-bottom: 80px;
+  border-radius: 4px;
+
 }
 
 .image {
   overflow: hidden;
   width: 50%;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 img {
@@ -126,11 +139,12 @@ button {
   align-items: center;
   cursor: pointer;
   font-family: var(--font-display);
+  border-radius: 4px;
 }
 
 .content-reveal {
   opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
+  animation: fadeIn 0.5s var(--cubic-bezier) forwards;
   animation-delay: 0.2s;
 }
 
@@ -157,6 +171,10 @@ p {
     flex-direction: column;
     height: auto;
     margin-top: 10vh;
+  }
+
+  .image, img {
+    border-radius: 4px;
   }
 
   .reveal-box {
