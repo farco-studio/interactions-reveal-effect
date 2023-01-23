@@ -36,9 +36,6 @@
   --btn-padding: 0 23px;
   --btn-font-size: 14px;
   --btn-font-lh: 24px;
-  --cubic-bezier: cubic-bezier(.98,0,0,.96);
-  /* --cubic-bezier: cubic-bezier(0.1, 0, 0, 1); */
-  --cubic-bezier-alt: cubic-bezier(0.1, 0, 0, 1.2);
 
 }
 
@@ -47,6 +44,11 @@ html {
   margin: 0;
   padding: 0;
   font-family: var(--font-display);
+}
+
+.reveal-component {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .tag {
@@ -63,6 +65,7 @@ html {
   position: relative;
 }
 
+
 .tag span {
   position: relative;
   z-index: 1;
@@ -76,7 +79,6 @@ html {
   right: 50%;
   content: '';
   display: block;
-  animation: reveal 1s var(--cubic-bezier-alt) forwards;
   animation-delay: 0.8s;
   border-radius: 4px;
 }
@@ -87,7 +89,7 @@ html {
   height: 50vh;
   margin: 0 auto;
   position: absolute;
-  top: 0;
+  bottom: 50vh;
 }
 
 .reveal-container {
@@ -102,6 +104,7 @@ html {
   height: calc(70vh);
   padding-bottom: 80px;
   border-radius: 4px;
+  overflow: hidden;
 
 }
 
@@ -144,8 +147,6 @@ button {
 
 .content-reveal {
   opacity: 0;
-  animation: fadeIn 0.5s var(--cubic-bezier) forwards;
-  animation-delay: 0.2s;
 }
 
 h1, p {
