@@ -23,7 +23,9 @@
   --bg-secondary: #f8b261;
   --bg-tertiary: #ebefff;
   --color-primary: #212322;
+  --color-secondary: #fff;
   --font-display: "Lexend", sans-serif;
+  --font-base: 'Inter', sans-serif;
   --bodycopy-size: 16px;
   --bodycopy-lh: 24px;
   --title--size: 36px;
@@ -36,7 +38,13 @@
   --btn-padding: 0 23px;
   --btn-font-size: 14px;
   --btn-font-lh: 24px;
+  --header-font-size: 16px;
+}
 
+@media screen and (max-width: 767px) {
+  :root {
+    --header-font-size: 14px;
+  }
 }
 
 body,
@@ -44,6 +52,47 @@ html {
   margin: 0;
   padding: 0;
   font-family: var(--font-display);
+}
+
+.header {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-primary);
+  position: relative;
+  font-family: var(--font-base);
+  font-size: var(--header-font-size);
+}
+
+.header a::after {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  right: 100%;
+  background: var(--color-primary);
+  position: absolute;
+  transition: right 0.3s ease-in-out;
+}
+
+.header a:hover::after {
+  right: 24px;
+}
+
+.header svg path {
+  stroke: var(--color-primary);
 }
 
 .reveal-component {
@@ -64,7 +113,6 @@ html {
   margin-bottom: 16px;
   position: relative;
 }
-
 
 .tag span {
   position: relative;
@@ -105,7 +153,6 @@ html {
   padding-bottom: 80px;
   border-radius: 4px;
   overflow: hidden;
-
 }
 
 .image {
@@ -171,7 +218,6 @@ p {
   .reveal-container {
     flex-direction: column;
     height: auto;
-    margin-top: 10vh;
   }
 
   .image, img {
