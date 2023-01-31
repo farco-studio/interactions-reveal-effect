@@ -134,10 +134,10 @@ html {
 .reveal-box {
   background-color: var(--bg-secondary);
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   margin: 0 auto;
   position: absolute;
-  bottom: 50vh;
+  /* bottom: 50vh; */
 }
 
 .reveal-container {
@@ -147,7 +147,6 @@ html {
   max-width: 1280px;
   width: 80%;
   margin: 0 auto;
-  background-color: var(--bg);
   margin-top: 15vh;
   height: calc(70vh);
   padding-bottom: 80px;
@@ -171,11 +170,12 @@ img {
 }
 
 .content {
-  padding: 60px 100px 70px 100px;
+  padding: 100px 60px 80px 60px;
   display: flex;
   align-items: center;
   width: 50%;
   box-sizing: border-box;
+  background-color: var(--bg);
 }
 
 button {
@@ -214,9 +214,21 @@ p {
   line-height: var(--bodycopy-lh);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: var(--title-m-size);
+    line-height: var(--title-m--lh);
+  }
+}
+
+@media screen and (max-width: 1023px) {
   .reveal-container {
     flex-direction: column;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .reveal-component {
     height: auto;
   }
 
@@ -233,15 +245,14 @@ p {
     padding: 0;
     order: 2;
     margin-top: 30px;
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 2.5s forwards;
   }
 
   .image {
     width: 100%;
-    max-height: 340px;
-  }
-
-  h1 {
-    font-size: var(--title-m-size);
-    line-height: var(--title-m--lh);
+    height: 45vh;
+    margin-top: 10vh;
   }
 }
